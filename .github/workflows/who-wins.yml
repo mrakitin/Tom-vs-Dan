@@ -1,0 +1,20 @@
+name : who_wins
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  who_releases_pims:
+    name: Check whose commit wins (a lower number does more work)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+      fail-fast: false
+
+    steps:
+      - name: ${{ github.actor }} turn
+        shell: bash -l {0}
+        run: |
+          python3 -c "import random; print(random.randint(1, 10))"
