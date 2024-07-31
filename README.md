@@ -1,6 +1,6 @@
 # Tom-vs-Dan
 
-Fair voting procedure on who releases PIMS (with logs and history).
+Fair voting procedure on who releases [PIMS](https://github.com/soft-matter/pims) (with logs and history).
 
 ## Rules:
 
