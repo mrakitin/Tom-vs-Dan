@@ -5,16 +5,15 @@ on:
   pull_request:
 
 jobs:
-  who_releases_pims:
-    name: Check whose commit wins (a lower number does more work)
+  rock_paper_scissors:
+    name: Check whose commit wins
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.9"]
-      fail-fast: false
 
     steps:
-      - name: ${{ github.actor }}'s turn
-        shell: bash -l {0}
+      - name: I hope you win!
         run: |
-          python3 -c "import random; print(random.randint(1, 10))"
+          options='🪨✂📄'
+          echo "choice=${options:$(( RANDOM % ${#options} )):1}" >> $GITHUB_ENV
+
+      - name: ${{ github.actor }} has chosen ${{env.choice}}
+        run: echo -n
